@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberCV · Security Researcher</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:opsz,wght@14..32,400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="brand-icon"></span>
+        <span class="brand-name">cyber<span class="highlight">.cv</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="pages/contact.html">CONTACT</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="status-text">ONLINE</span>
+      </div>
+    </nav>
+
+    <!-- ========== HERO (home) ========== -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h1 class="glitch-text" data-text="studente·sec">studente·sec</h1>
+        <div class="hero-description">
+          <p id="editable-text" contenteditable="true">
+            ⌨️ Ciao, sono <strong>Marco</strong>, studente di Sicurezza Informatica.
+              Amo sviluppare tool per automazione su linux, scrivere programmi in python e vivere nel terminale.
+              Le certificazioni open source sono il futuro, ed in ambito enterprise RHEL rimane imbattibile.
+              Se anche tu che stai leggendo ti sei rotto i coglioni della suite che Google di offre, ti invito a contattarmi in privato direttamente dalla sezione del sito: "Contact" qui sopra. <br \>
+
+            <span class="terminal-cursor">_</span>
+          </p>
+        </div>
+        <div class="hero-meta">
+          <span class="tag">#linux</span>
+          <span class="tag">#python</span>
+          <span class="tag">#cybersec</span>
+          <span class="tag">#rust</span>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">zsh — 80×24</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">➜</span> <span class="cmd">whoami</span></p>
+            <p class="output">studente_sec</p>
+            <p><span class="prompt">➜</span> <span class="cmd">uname -a</span></p>
+            <p class="output">Linux cyberbox 7.2.2-1-arch #1 SMP PREEMPT_DYNAMIC</p>
+            <p><span class="prompt">➜</span> <span class="cmd blinking-cursor">_</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT + TOOLS (testo libero) ========== -->
+    <section id="about" class="about-section">
+      <div class="section-header">
+        <h2>//_ about &amp; tools</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="card-icon">⚙️</div>
+          <h3>TOOLCHAIN</h3>
+          <p contenteditable="true">
+            Python · Bash · Metasploit · Docker/Podman · Wireshark · Nmap · Burp Suite
+          </p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">📡</div>
+          <h3>RECENT PROJECTS</h3>
+          <p contenteditable="true">
+            Gestionale di Fatturazione presso lo studio di consulenza del Lavoro di Rustignoli Cinzia
+          </p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">🧠</div>
+          <h3>INTERESTS</h3>
+          <p contenteditable="true">
+            Reverse engineering - Red Teaming - Offensive Security - CTF - Linux Clusters - Proxmox LVMs - Disaster Recovery - Python Scripting 
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <p>© 2026 · cyber.cv — built with [1,0...] and <span class="term">[terminal]</span></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

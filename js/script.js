@@ -1,0 +1,98 @@
+// script.js — animazioni, form handler, glow interattivo
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ---------- NAVBAR ACTIVE LINK ----------
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  function setActiveLink() {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveLink);
+  setActiveLink(); // on load
+
+  // ---------- CONTACT FORM (simula invio) ----------
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('⚠️ Compila tutti i campi prima di inviare.');
+        return;
+      }
+
+      // effetto “invio” con animazione
+      const btn = form.querySelector('.btn-submit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="btn-text">✓ inviato</span>';
+      btn.style.borderColor = '#2ecc71';
+      btn.style.boxShadow = '0 0 30px #2ecc7160';
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.borderColor = '#3fe0d0';
+        btn.style.boxShadow = 'none';
+        form.reset();
+        alert('📨 Messaggio inviato (simulazione) — Grazie per avermi contattato!');
+      }, 1800);
+    });
+  }
+
+  // ---------- ANIMAZIONE GLITCH SOTTILE (effetto hover su titolo) ----------
+  const glitch = document.querySelector('.glitch-text');
+  if (glitch) {
+    glitch.addEventListener('mouseenter', () => {
+      glitch.style.textShadow = '0 0 30px #3fe0d0, 0 0 80px #3fe0d080, 0 0 120px #ff6b8a40';
+    });
+    glitch.addEventListener('mouseleave', () => {
+      glitch.style.textShadow = '0 0 20px #3fe0d080, 0 0 60px #3fe0d030';
+    });
+  }
+
+  // ---------- TERMINAL CURSOR BLINK (già in css) ----------
+
+  // ---------- (opzionale) piccolo effetto “digitazione” su hero description ----------
+  const editable = document.getElementById('editable-text');
+  if (editable) {
+    // se l'utente clicca fuori, non perde lo stile
+    editable.addEventListener('blur', () => {
+      // mantiene il contenuto
+    });
+  }
+
+  // ---------- RANDOM TAGS HOVER GLOW ----------
+  const tags = document.querySelectorAll('.tag');
+  tags.forEach(tag => {
+    tag.addEventListener('mouseenter', function() {
+      this.style.boxShadow = '0 0 20px #3fe0d070';
+    });
+    tag.addEventListener('mouseleave', function() {
+      this.style.boxShadow = '0 0 4px #2d455560';
+    });
+  });
+
+  console.log('🐧 cyber.cv — ready.');
+});
+
