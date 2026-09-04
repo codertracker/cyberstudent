@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progetti · CyberCV</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:opsz,wght@14..32,400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/phone.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="brand-icon"></span>
+        <span class="brand-name">cyber<span class="highlight">.cv</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="projects.html" class="active">PROJECTS</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="status-text">ONLINE</span>
+      </div>
+    </nav>
+
+    <!-- ========== HEADER ========== -->
+    <header class="projects-header">
+      <h1 class="glitch-text" data-text="~/projects">~/projects</h1>
+      <p class="header-sub">
+        <span class="prompt">$</span>
+        <span class="cmd">ls -la</span>
+        <span class="output">· succesfully loaded</span>
+      </p>
+    </header>
+
+    <!-- ========== LISTA PROGETTI ========== -->
+    <section class="projects-list">
+
+      <!-- PROGETTO 1: Gestionale Fatturazione -->
+      <article class="project-item">
+        <div class="project-icon">📊</div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>InvoiceFlow</h3>
+            <span class="project-status live">live</span>
+          </div>
+          <p class="project-desc">
+            Gestionale di fatturazione completo per lo studio di consulenza del Lavoro di Rustignoli Cinzia.
+            HTML, CSS, Javascript per la parte front-end mentre, MariaDB con mysql e nodejs per la parte backend
+            Per maggiori informazioni scrivermi in privato, oppure contattarmi dalla sezione: "Contact" del sito web.
+            Purtroppo il backup è ancora in manuale però presto sarà fatto con degli strumenti automatici e fatti comunicare con un backup server appena possibile.
+          </p>
+          <div class="project-tech">
+            <span class="tag">HTML</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">CSS</span>
+            <span class="tag">NodeJS</span>
+            <span class="tag">MariaDB</span>
+            <span class="tag">Python</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="card-link">🔗 demo</a>
+            <a href="#" class="card-link">📂 repo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROGETTO 2: Cluster Building (Documentazione) -->
+      <article class="project-item">
+        <div class="project-icon">🏗️</div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>Cluster Building</h3>
+            <span class="project-status dev">dev</span>
+          </div>
+          <p class="project-desc">
+            Progetto di documentazione tecnica per la realizzazione di cluster Linux ad alte prestazioni senza interfacce grafica.
+            Include guide dettagliate per configurazione di Rocky Linux, gestione docker/podman, disaster recovery in aggiornamento,
+            clustering con Kuberneties. Documentazione completa con esempi pratici e casi d'uso reali saranno caricati successivamente.
+          </p>
+          <div class="project-tech">
+            <span class="tag">Rocky Linux</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Podman</span>
+            <span class="tag">Dockflare</span>
+            <span class="tag">Linux Kernel</span>
+            <span class="tag">Nginx Proxy Manager</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="card-link">📖 documentazione</a>
+            <a href="#" class="card-link">📂 repo</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <p>© 2026 · cyber.cv — built with [1,0...] and <span class="term">[terminal]</span></p>
+    </footer>
+
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

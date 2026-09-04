@@ -180,6 +180,42 @@
         font-size: 0.85rem;
     }
 
+    /* CV TERMINAL */
+    .cv-section {
+        padding: 1.6rem 0 0.8rem 0;
+    }
+
+    .cv-container {
+        max-width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .cv-container .terminal-window {
+        border-radius: 12px;
+    }
+
+    .cv-container .terminal-body {
+        padding: 0.8rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .cv-container .terminal-body p {
+        margin: 0.1rem 0;
+    }
+
+    .cv-container .output {
+        padding-left: 1rem;
+        font-size: 0.75rem;
+    }
+
+    .cv-container .prompt {
+        font-size: 0.75rem;
+    }
+
+    .cv-container .cmd {
+        font-size: 0.75rem;
+    }
+
     /* CONTACT */
     .contact-section {
         padding: 1.6rem 0 0.8rem 0;
@@ -294,6 +330,29 @@
         font-size: 1.4rem;
     }
 
+    /* CV TERMINAL - Extra small */
+    .cv-container .terminal-body {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.6rem;
+    }
+
+    .cv-container .output {
+        padding-left: 0.6rem;
+        font-size: 0.6rem;
+    }
+
+    .cv-container .prompt {
+        font-size: 0.6rem;
+    }
+
+    .cv-container .cmd {
+        font-size: 0.6rem;
+    }
+
+    .cv-container .terminal-body p {
+        margin: 0.05rem 0;
+    }
+
     .contact-wrapper {
         padding: 0.8rem;
         gap: 1.2rem;
@@ -369,6 +428,17 @@
         grid-template-columns: repeat(4, 1fr);
     }
 
+    /* CV TERMINAL - Landscape */
+    .cv-container .terminal-body {
+        padding: 0.6rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    .cv-container .output {
+        padding-left: 0.8rem;
+        font-size: 0.7rem;
+    }
+
     .contact-wrapper {
         flex-direction: row;
     }
@@ -380,5 +450,371 @@
 
     .nav-links {
         gap: 0.8rem;
+    }
+}
+
+/* projects.css — Stili essenziali per la pagina progetti */
+
+/* ========== HEADER ========== */
+.projects-header {
+    padding: 2rem 0 1.5rem 0;
+    border-bottom: 1px solid rgba(0, 255, 200, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+.glitch-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #c8f0e8;
+    text-shadow: 0 0 20px #3fe0d080, 0 0 60px #3fe0d030;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+}
+
+.glitch-text::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff6b8a;
+    z-index: -1;
+    filter: blur(1px);
+    opacity: 0.3;
+    transform: translate(2px, 2px);
+}
+
+.header-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: #8aa4b8;
+}
+
+.prompt {
+    color: #3fe0d0;
+}
+
+.cmd {
+    color: #b8d8e8;
+}
+
+.output {
+    color: #b0d0c0;
+    opacity: 0.8;
+}
+
+/* ========== LISTA PROGETTI ========== */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem 0 2rem 0;
+}
+
+.project-item {
+    display: flex;
+    gap: 1.5rem;
+    background: #0d161e;
+    padding: 1.5rem 1.8rem;
+    border-radius: 16px;
+    border: 1px solid #1a2a33;
+    transition: 0.3s ease;
+    align-items: flex-start;
+}
+
+.project-item:hover {
+    border-color: #3fe0d080;
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.project-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+}
+
+.project-header h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #c8e8f0;
+    margin: 0;
+}
+
+.project-status {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.15rem 0.8rem;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-status.live {
+    color: #2ecc71;
+    border-color: #2ecc7160;
+}
+
+.project-status.beta {
+    color: #f0c74a;
+    border-color: #f0c74a60;
+}
+
+.project-status.stable {
+    color: #5b9bd5;
+    border-color: #5b9bd560;
+}
+
+.project-status.dev {
+    color: #ff6b8a;
+    border-color: #ff6b8a60;
+}
+
+.project-desc {
+    color: #a0bccb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.2rem 0 0.8rem 0;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.tag {
+    background: #141f2a;
+    padding: 0.2rem 0.8rem;
+    border-radius: 40px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #92b9c9;
+    border: 1px solid #2d4555;
+    transition: 0.2s;
+}
+
+.tag:hover {
+    background: #1d2f3d;
+    color: #b0f0e8;
+    border-color: #3fe0d0;
+}
+
+.project-links {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.card-link {
+    color: #8aa4b8;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: 0.2s;
+    padding: 0.2rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.card-link:hover {
+    color: #b0f0e8;
+    border-bottom-color: #3fe0d0;
+}
+
+/* ========== CV TERMINAL nella pagina progetti ========== */
+.cv-section {
+    padding: 2.8rem 0 1.2rem 0;
+}
+
+.cv-container {
+    margin-top: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cv-container .terminal-window {
+    border-color: #3fe0d060;
+}
+
+.cv-container .terminal-window:hover {
+    border-color: #3fe0d0;
+    box-shadow: 0 16px 50px #00000080, 0 0 0 1px #3fe0d040;
+    transition: 0.3s ease;
+}
+
+.cv-container .output {
+    padding-left: 1.4rem;
+    opacity: 0.9;
+    color: #b0d0c0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .app-wrapper {
+        padding: 1.2rem;
+    }
+
+    .glitch-text {
+        font-size: 2.2rem;
+    }
+
+    .header-sub {
+        font-size: 0.85rem;
+    }
+
+    .project-item {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1.2rem;
+    }
+
+    .project-icon {
+        font-size: 1.8rem;
+    }
+
+    .project-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .project-desc {
+        font-size: 0.9rem;
+    }
+
+    .project-status {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.6rem;
+    }
+
+    .tag {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.6rem;
+    }
+
+    .card-link {
+        font-size: 0.75rem;
+    }
+
+    /* CV responsive */
+    .cv-container {
+        max-width: 100%;
+    }
+
+    .cv-container .terminal-body {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .cv-container .output {
+        padding-left: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .cv-container .prompt {
+        font-size: 0.8rem;
+    }
+
+    .cv-container .cmd {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .glitch-text {
+        font-size: 1.6rem;
+    }
+
+    .header-sub {
+        font-size: 0.7rem;
+    }
+
+    .project-item {
+        padding: 0.8rem;
+        border-radius: 10px;
+        gap: 0.6rem;
+    }
+
+    .project-icon {
+        font-size: 1.5rem;
+    }
+
+    .project-header {
+        gap: 0.4rem;
+    }
+
+    .project-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .project-status {
+        font-size: 0.5rem;
+        padding: 0.1rem 0.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    .project-desc {
+        font-size: 0.75rem;
+        margin: 0.1rem 0 0.5rem 0;
+        line-height: 1.5;
+    }
+
+    .project-tech {
+        gap: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tag {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.5rem;
+    }
+
+    .project-links {
+        gap: 0.6rem;
+    }
+
+    .card-link {
+        font-size: 0.65rem;
+    }
+
+    /* CV responsive extra small */
+    .cv-container .terminal-body {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.6rem;
+    }
+
+    .cv-container .output {
+        padding-left: 0.6rem;
+        font-size: 0.6rem;
+    }
+
+    .cv-container .prompt {
+        font-size: 0.6rem;
+    }
+
+    .cv-container .cmd {
+        font-size: 0.6rem;
+    }
+
+    .cv-container .terminal-body p {
+        margin: 0.05rem 0;
     }
 }
