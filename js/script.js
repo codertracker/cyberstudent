@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Inserisci l'URL completo del tuo progetto Vercel
-const VERCEL_API_URL = "https://cyberstudent-d4ucb6p1t-codetracker.vercel.app/";
+const VERCEL_API_URL = "https://cyberstudent.vercel.app/";
 
 async function caricaDati() {
   try {
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnText.textContent = 'invio in corso...';
 
       try {
-        const response = await fetch('https://cyberstudent.vercel.app/api/contact', {
+        const response = await fetch('https://cyberstudent.vercel.app/api/contact/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
