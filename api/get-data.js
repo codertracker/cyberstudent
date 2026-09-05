@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   try {
     // Esempio: Sostituisci 'utente' con il nome della tua tabella definita nello schema Prisma
     // (es. prisma.post.findMany(), prisma.prodotto.findMany(), ecc.)
-    const dati = await prisma.Utente.findMany(); 
+    const dati = await prisma.utente.findMany(); 
 
     return res.status(200).json(dati);
   } catch (error) {

@@ -96,3 +96,35 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('🐧 cyber.cv — ready.');
 });
 
+// Inserisci l'URL completo del tuo progetto Vercel
+const VERCEL_API_URL = "https://cyberstudent-d4ucb6p1t-codetracker.vercel.app/";
+
+async function caricaDati() {
+  try {
+    const response = await fetch(VERCEL_API_URL);
+    
+    if (!response.ok) {
+      throw new Error(`Errore HTTP: ${response.status}`);
+    }
+
+    const utenti = await response.json();
+    console.log('Dati ricevuti da Vercel:', utenti);
+
+    // Esempio: Inserisci i dati all'interno del terminale HTML
+    const outputTerminal = document.querySelector('.terminal-body');
+    if (outputTerminal && utenti.length > 0) {
+      utenti.forEach(utente => {
+        const p = document.createElement('p');
+        p.className = 'output';
+        p.textContent = `Utente trovato: ID ${utente.id} - Nome: ${utente.nome || 'N/D'}`;
+        outputTerminal.appendChild(p);
+      });
+    }
+
+  } catch (error) {
+    console.error('Impossibile recuperare i dati:', error);
+  }
+}
+
+// Avvia la chiamata al caricamento della pagina
+document.addEventListener('DOMContentLoaded', caricaDati);
