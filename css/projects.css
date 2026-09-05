@@ -1,7 +1,5 @@
 /* projects.css — Stili essenziali per la pagina progetti */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:opsz,wght@14..32,400;500;600&display=swap');
-
 /* ========== HEADER ========== */
 .projects-header {
     padding: 2rem 0 1.5rem 0;
