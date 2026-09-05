@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnText.textContent = 'invio in corso...';
 
       try {
-        const response = await fetch('https://NOME-TUO-PROGETTO.vercel.app/api/contact', {
+        const response = await fetch('https://cyberstudent.vercel.app/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
