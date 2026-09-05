@@ -1,0 +1,8 @@
+{
+  "buildCommand": "prisma generate",
+  "functions": {
+    "api/*.js": {
+      "includeFiles": "node_modules/.prisma/client/**"
+    }
+  }
+}

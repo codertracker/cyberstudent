@@ -1,9 +1,6 @@
 {
-  "name": "cyberstudent",
+  "name": "mio-progetto",
   "version": "1.0.0",
-  "scripts": {
-    "build": "prisma generate"
-  },
   "dependencies": {
     "@prisma/client": "^5.10.0"
   },
