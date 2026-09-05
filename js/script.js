@@ -101,25 +101,19 @@ const VERCEL_API_URL = "https://cyberstudent.vercel.app/";
 
 async function caricaDati() {
   try {
-    const response = await fetch(VERCEL_API_URL);
+    const response = await fetch('https://cyberstudent.vercel.app/api/get-data');
     
+    // Leggiamo la risposta come testo per verificare cosa restituisce davvero Vercel
+    const textData = await response.text();
+
     if (!response.ok) {
-      throw new Error(`Errore HTTP: ${response.status}`);
+      console.error(`Errore HTTP ${response.status}:`, textData);
+      return;
     }
 
-    const utenti = await response.json();
-    console.log('Dati ricevuti da Vercel:', utenti);
-
-    // Esempio: Inserisci i dati all'interno del terminale HTML
-    const outputTerminal = document.querySelector('.terminal-body');
-    if (outputTerminal && utenti.length > 0) {
-      utenti.forEach(utente => {
-        const p = document.createElement('p');
-        p.className = 'output';
-        p.textContent = `Utente trovato: ID ${utente.id} - Nome: ${utente.nome || 'N/D'}`;
-        outputTerminal.appendChild(p);
-      });
-    }
+    // Convertiamo in JSON solo se la risposta è 200 OK
+    const dati = JSON.parse(textData);
+    console.log('Dati ricevuti con successo:', dati);
 
   } catch (error) {
     console.error('Impossibile recuperare i dati:', error);
