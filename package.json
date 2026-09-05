@@ -1,10 +1,13 @@
 {
-  "name": "cyberstudent",
+  "name": "mio-sito-web",
   "version": "1.0.0",
+  "scripts": {
+    "build": "prisma generate"
+  },
   "dependencies": {
-    "@prisma/client": "^5.0.0"
+    "@prisma/client": "^5.10.0"
   },
   "devDependencies": {
-    "prisma": "^5.0.0"
+    "prisma": "^5.10.0"
   }
 }
