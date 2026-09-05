@@ -128,3 +128,52 @@ async function caricaDati() {
 
 // Avvia la chiamata al caricamento della pagina
 document.addEventListener('DOMContentLoaded', caricaDati);
+
+/* deploy delle informazioni dal form */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btnSubmit = contactForm.querySelector('.btn-submit');
+      const btnText = contactForm.querySelector('.btn-text');
+      
+      // Prendi i valori dagli input di contact.html
+      const nome = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const messaggio = document.getElementById('message').value.trim();
+
+      // Disabilita il pulsante durante l'invio
+      btnSubmit.disabled = true;
+      btnText.textContent = 'invio in corso...';
+
+      try {
+        const response = await fetch('https://NOME-TUO-PROGETTO.vercel.app/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nome, email, messaggio }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert('Messaggio inviato con successo!');
+          contactForm.reset();
+        } else {
+          alert(`Errore nell'invio: ${data.error}`);
+        }
+      } catch (error) {
+        console.error('Errore durante l\'invio:', error);
+        alert('Si è verificato un errore di rete.');
+      } finally {
+        btnSubmit.disabled = false;
+        btnText.textContent = 'invia';
+      }
+    });
+  }
+});
