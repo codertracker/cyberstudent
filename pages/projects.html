@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progetti · CyberCV</title>
+  <title>Progetti · Gian Marco Brandoli</title>
+  <meta name="description"
+    content="Tutti i progetti di Gian Marco Brandoli: gestionali web, infrastrutture Linux, automazione e sicurezza informatica." />
+
   <!-- Google Fonts -->
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/phone.css" />
-  <link rel="stylesheet" href="../css/projects.css" />
 </head>
+
 <body>
   <div class="app-wrapper">
 
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
-      <div class="nav-brand">
-        <span class="brand-icon"></span>
-        <span class="brand-name">cyber<span class="highlight">.cv</span></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="../index.html">HOME</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="projects.html" class="active">PROJECTS</a></li>
+      <a href="../index.html" class="nav-brand">
+        <span class="brand-shield">🛡️</span>
+        <span class="brand-name">gm<span class="highlight">.sec</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="projects.html" class="active" aria-current="page">Progetti</a></li>
+        <li><a href="contact.html">Contatti</a></li>
       </ul>
       <div class="nav-status">
         <span class="status-dot"></span>
@@ -35,80 +46,214 @@
       <h1 class="glitch-text" data-text="~/projects">~/projects</h1>
       <p class="header-sub">
         <span class="prompt">$</span>
-        <span class="cmd">ls -la</span>
-        <span class="output">· succesfully loaded</span>
+        <span class="cmd"> ls -la --sort=date</span>
+        <span class="output">· 2 progetti trovati</span>
       </p>
     </header>
 
-    <!-- ========== LISTA PROGETTI ========== -->
-    <section class="projects-list">
+    <!-- ========== FILTER BAR ========== -->
+    <div class="projects-filter" role="group" aria-label="Filtra per categoria">
+      <button class="filter-btn active" data-filter="all" id="filter-all">Tutti</button>
+      <button class="filter-btn" data-filter="web" id="filter-web">Web & Full-Stack</button>
+      <button class="filter-btn" data-filter="infra" id="filter-infra">Infrastruttura</button>
+      <button class="filter-btn" data-filter="security" id="filter-security">Security</button>
+    </div>
 
-      <!-- PROGETTO 1: Gestionale Fatturazione -->
-      <article class="project-item">
-        <div class="project-icon">📊</div>
+    <!-- ========== LISTA PROGETTI ========== -->
+    <section class="projects-list" aria-label="Lista progetti">
+
+      <!-- PROGETTO 1: InvoiceFlow -->
+      <article class="project-item reveal" data-category="web" id="project-invoiceflow">
+        <div class="project-icon-wrap">📊</div>
         <div class="project-content">
           <div class="project-header">
-            <h3>InvoiceFlow</h3>
-            <span class="project-status live">live</span>
+            <h3>StudioLav</h3>
+            <span class="project-status live">Live</span>
           </div>
+
           <p class="project-desc">
-            Gestionale di fatturazione completo per lo studio di consulenza del Lavoro di Rustignoli Cinzia.
-            HTML, CSS, Javascript per la parte front-end mentre, MariaDB con mysql e nodejs per la parte backend
-            Per maggiori informazioni scrivermi in privato, oppure contattarmi dalla sezione: "Contact" del sito web.
-            Purtroppo il backup è ancora in manuale però presto sarà fatto con degli strumenti automatici e fatti comunicare con un backup server appena possibile.
+            Gestionale di fatturazione full-stack sviluppato per lo
+            <strong>Studio di Consulenza del Lavoro Rustignoli Cinzia</strong>.
+            Il sistema automatizza l'emissione di fatture, la gestione clienti
+            e il tracking dei pagamenti, sostituendo un flusso cartaceo con
+            una soluzione digitale scalabile e sicura.
           </p>
-          <div class="project-tech">
-            <span class="tag">HTML</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">CSS</span>
-            <span class="tag">NodeJS</span>
+
+          <!-- Sezione dettagli espandibile -->
+          <div class="project-details" id="details-invoiceflow">
+            <div class="project-details-inner">
+              <h4>Dettagli tecnici</h4>
+              <ul>
+                <li>Frontend in HTML5 / CSS3 / JavaScript vanilla con UX ottimizzata per uso quotidiano</li>
+                <li>Backend Node.js con API REST per gestione dati e autenticazione</li>
+                <li>Database MariaDB con schema normalizzato per clienti, fatture e voci</li>
+                <li>Deploy su Vercel con variabili d'ambiente protette</li>
+                <li>Backup manuale dei dati (automazione pianificata con cron job + storage remoto)</li>
+                <li>Autenticazione con sessioni sicure e protezione CSRF</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-tech" aria-label="Tecnologie utilizzate">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js</span>
             <span class="tag">MariaDB</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Vercel</span>
             <span class="tag">Python</span>
           </div>
-          <div class="project-links">
-            <a href="#" class="card-link">🔗 demo</a>
-            <a href="#" class="card-link">📂 repo</a>
+
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="contact.html" class="card-link" id="link-invoiceflow-demo">💬 Richiedi demo</a>
+              <a href="contact.html" class="card-link" id="link-invoiceflow-info">📩 Info progetto</a>
+            </div>
+            <button class="btn-expand" data-target="details-invoiceflow" id="expand-invoiceflow" aria-expanded="false">
+              Dettagli <span class="expand-icon">▼</span>
+            </button>
           </div>
         </div>
       </article>
 
-      <!-- PROGETTO 2: Cluster Building (Documentazione) -->
-      <article class="project-item">
-        <div class="project-icon">🏗️</div>
+      <!-- PROGETTO 2: Cluster Linux -->
+      <article class="project-item reveal" data-category="infra" id="project-cluster">
+        <div class="project-icon-wrap">🏗️</div>
         <div class="project-content">
           <div class="project-header">
-            <h3>Cluster Building</h3>
-            <span class="project-status dev">dev</span>
+            <h3>Linux Cluster ElerNode — Homelab</h3>
+            <span class="project-status dev">In sviluppo</span>
           </div>
+
           <p class="project-desc">
-            Progetto di documentazione tecnica per la realizzazione di cluster Linux ad alte prestazioni senza interfacce grafica.
-            Include guide dettagliate per configurazione di Rocky Linux, gestione docker/podman, disaster recovery in aggiornamento,
-            clustering con Kuberneties. Documentazione completa con esempi pratici e casi d'uso reali saranno caricati successivamente.
+            Progettazione e documentazione di un <strong>cluster Linux ad alte prestazioni</strong>
+            completamente headless (senza GUI). Include configurazione avanzata di Rocky Linux,
+            orchestrazione container con Docker e Podman, reverse proxy con Nginx Proxy Manager
+            e strategie di Disaster Recovery documentate step-by-step.
           </p>
-          <div class="project-tech">
+
+          <div class="project-details" id="details-cluster">
+            <div class="project-details-inner">
+              <h4>Stack infrastrutturale</h4>
+              <ul>
+                <li>Rocky Linux 10 come OS base (RHEL-compatible, enterprise grade)</li>
+                <li>Proxmox VE per virtualizzazione e gestione LVM</li>
+                <li>Docker e Podman per containerizzazione dei servizi</li>
+                <li>Cloudflare Tunnel (Cloudflared) per esposizione sicura senza aprire porte</li>
+                <li>Nginx Proxy Manager per routing del traffico interno/esterno</li>
+                <li>Kubernetes (in fase di integrazione) per orchestrazione avanzata</li>
+                <li>Script Python/Bash per automazione backup e health-check</li>
+                <li>Documentazione tecnica completa con esempi pratici e troubleshooting</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-tech" aria-label="Tecnologie utilizzate">
             <span class="tag">Rocky Linux</span>
+            <span class="tag">Proxmox</span>
             <span class="tag">Docker</span>
             <span class="tag">Podman</span>
-            <span class="tag">Dockflare</span>
-            <span class="tag">Linux Kernel</span>
-            <span class="tag">Nginx Proxy Manager</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Nginx PM</span>
+            <span class="tag">Cloudflare</span>
+            <span class="tag">Bash</span>
+            <span class="tag">Python</span>
           </div>
-          <div class="project-links">
-            <a href="#" class="card-link">📖 documentazione</a>
-            <a href="#" class="card-link">📂 repo</a>
+
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="contact.html" class="card-link" id="link-cluster-docs">📖 Richiedi documentazione</a>
+              <a href="https://github.com/codertracker" class="card-link" target="_blank" rel="noopener"
+                id="link-cluster-repo">🐙 GitHub</a>
+            </div>
+            <button class="btn-expand" data-target="details-cluster" id="expand-cluster" aria-expanded="false">
+              Dettagli <span class="expand-icon">▼</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROGETTO 3: CTF & Security Research -->
+      <article class="project-item reveal" data-category="security" id="project-ctf">
+        <div class="project-icon-wrap">🔐</div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>CTF & Security Research</h3>
+            <span class="project-status dev">Ongoing</span>
+          </div>
+
+          <p class="project-desc">
+            Attività continua di ricerca sulla sicurezza informatica attraverso
+            <strong>Capture The Flag</strong> su piattaforme come TryHackMe e HackTheBox.
+            Studio di vulnerabilità, exploit development, analisi di traffico di rete
+            e reverse engineering di binari. Writeup e documentazione in preparazione.
+          </p>
+
+          <div class="project-details" id="details-ctf">
+            <div class="project-details-inner">
+              <h4>Aree di ricerca</h4>
+              <ul>
+                <li>Web Application Security: SQL Injection, XSS, SSRF, IDOR</li>
+                <li>Network Analysis: Wireshark, tcpdump, sniffing e analisi protocolli</li>
+                <li>Binary Exploitation: Buffer overflow, ROP chains (in apprendimento)</li>
+                <li>Privilege Escalation su sistemi Linux e Windows</li>
+                <li>Utilizzo di Metasploit Framework e exploit manuali</li>
+                <li>OSINT e ricognizione passiva</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-tech" aria-label="Tecnologie utilizzate">
+            <span class="tag">Metasploit</span>
+            <span class="tag">Burp Suite</span>
+            <span class="tag">Wireshark</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">Python</span>
+            <span class="tag">Bash</span>
+            <span class="tag">TryHackMe</span>
+            <span class="tag">HackTheBox</span>
+          </div>
+
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="https://github.com/codertracker" class="card-link" target="_blank" rel="noopener"
+                id="link-ctf-github">🐙 GitHub</a>
+              <a href="contact.html" class="card-link" id="link-ctf-contact">💬 Contattami</a>
+            </div>
+            <button class="btn-expand" data-target="details-ctf" id="expand-ctf" aria-expanded="false">
+              Dettagli <span class="expand-icon">▼</span>
+            </button>
           </div>
         </div>
       </article>
 
     </section>
 
+    <!-- ========== CTA ========== -->
+    <div class="projects-cta">
+      <div>
+        <strong>Hai un progetto in mente?</strong>
+        <p>Sono disponibile per collaborazioni, consulenze e lavori freelance.</p>
+      </div>
+      <a href="contact.html" class="btn-primary" id="btn-cta-contact">
+        Scrivimi →
+      </a>
+    </div>
+
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-      <p>© 2026 · cyber.cv — built with [1,0...] and <span class="term">[terminal]</span></p>
+      <span class="footer-brand">© 2026 · <strong>gm.sec</strong> — Gian Marco Brandoli</span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="contact.html">Contatti</a>
+        <a href="https://github.com/codertracker" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </footer>
 
   </div>
 
   <script src="../js/script.js"></script>
 </body>
+
 </html>

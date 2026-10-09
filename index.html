@@ -1,74 +1,113 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberCV · Security Researcher</title>
+  <title>Gian Marco Brandoli · Security Researcher & Linux Developer</title>
+  <meta name="description"
+    content="Portfolio di Gian Marco Brandoli — studente di Sicurezza Informatica, sviluppatore Linux e appassionato di open source, Red Teaming e automazione." />
+  <meta name="keywords"
+    content="cybersecurity, linux, python, security researcher, red team, CTF, portfolio, Gian Marco Brandoli" />
+  <meta property="og:title" content="Gian Marco Brandoli · Security Researcher" />
+  <meta property="og:description"
+    content="Studente di Sicurezza Informatica. Sviluppatore Linux. Appassionato di Red Teaming e automazione open source." />
+  <meta property="og:type" content="website" />
+
   <!-- Google Fonts -->
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/phone.css" />
 </head>
+
 <body>
   <div class="app-wrapper">
 
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
-      <div class="nav-brand">
-        <span class="brand-icon"></span>
-        <span class="brand-name">cyber<span class="highlight">.cv</span></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">HOME</a></li>
-        <li><a href="pages/contact.html">CONTACT</a></li>
-        <li><a href="pages/projects.html">PROJECTS</a></li>
+      <a href="index.html" class="nav-brand">
+        <span class="brand-shield">🛡️</span>
+        <span class="brand-name">gm<span class="highlight">.sec</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="pages/projects.html">Progetti</a></li>
+        <li><a href="pages/contact.html">Contatti</a></li>
       </ul>
-      <div class="nav-status">
-        <span class="status-dot"></span>
+      <div class="nav-status" aria-label="Stato: online">
+        <span class="status-dot" role="img" aria-label="Online"></span>
         <span class="status-text">ONLINE</span>
       </div>
     </nav>
 
-    <!-- ========== HERO (home) ========== -->
+    <!-- ========== HERO ========== -->
     <section id="home" class="hero-section">
       <div class="hero-content">
-        <h1 class="glitch-text" data-text="studente·sec">studente·sec</h1>
+        <span class="hero-eyebrow">🎓 Security Researcher · Studente</span>
+        <h1 class="glitch-text" data-text="Gian Marco">Gian Marco</h1>
+        <p class="hero-subtitle">Brandoli · Sicurezza Informatica & Linux Development</p>
+
         <div class="hero-description">
-          <p id="editable-text" contenteditable="true">
-            ⌨️ Ciao, sono <strong>Gian Marco Brandoli</strong>, studente di Sicurezza Informatica.
-              Amo sviluppare tool per automazione su linux, scrivere programmi in python e vivere nel terminale.
-              Le certificazioni open source sono il futuro, ed in ambito enterprise RHEL rimane imbattibile.
-              Se anche tu che stai leggendo e ti sei stancato della suite che Google ti mette a disposizione, ti invito a contattarmi in privato
-              direttamente dalla sezione del sito: "Contact" qui sopra per offrirti delle alternative più che valide e che rispettano le norme della privacy attuale<br \>
+          <p>
+            Mi chiamo <strong>Gian Marco Brandoli</strong> e sono uno studente di
+            <strong>Sicurezza Informatica</strong> con una forte passione per il mondo Linux,
+            l'automazione e l'offensive security. Sviluppo strumenti in Python e Bash,
+            gestisco infrastrutture self-hosted e mi alleno costantemente su piattaforme CTF.
+            <br /><br />
+            Credo nell'open source come modello di sviluppo etico e sostenibile.
+            Se stai cercando un professionista per consulenze su privacy, infrastrutture
+            Linux o sicurezza applicativa, <strong>sei nel posto giusto</strong>.
             <span class="terminal-cursor">_</span>
           </p>
         </div>
-        <div class="hero-meta">
+
+        <div class="hero-meta" aria-label="Skill tags">
           <span class="tag">#linux</span>
           <span class="tag">#python</span>
           <span class="tag">#cybersec</span>
-          <span class="tag">#cloud</span>
-          <span class="tag">#opensource</span>
-          <span class="tag">#fuckgoogle</span>
+          <span class="tag">#red-team</span>
+          <span class="tag">#docker</span>
+          <span class="tag">#open-source</span>
+          <span class="tag">#CTF</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="pages/projects.html" class="btn-primary" id="btn-view-projects">
+            Vedi i Progetti <span>→</span>
+          </a>
+          <a href="pages/contact.html" class="btn-secondary" id="btn-contact">
+            Contattami
+          </a>
         </div>
       </div>
+
+      <!-- Terminal finto hero -->
       <div class="hero-illustration">
-        <div class="terminal-window">
+        <div class="terminal-window" role="img" aria-label="Terminale interattivo">
           <div class="terminal-header">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
-            <span class="terminal-title">zsh — 80×24</span>
+            <span class="terminal-title">zsh — gm@cyberbox</span>
           </div>
-          <div class="terminal-body">
+          <div class="terminal-body" id="hero-terminal">
             <p><span class="prompt">➜</span> <span class="cmd">whoami</span></p>
-            <p class="output">studente_sec</p>
-            <p><span class="prompt">➜</span> <span class="cmd">uname -a</span></p>
-            <p class="output">Linux cyberbox 7.2.2-1-arch #1 SMP PREEMPT_DYNAMIC</p>
-            <p><span class="prompt">➜</span> <span class="cmd">sudo pacman -Syyu</span></p>
-            <p class="output">Everything is up to date!</p>
-            <p><span class="prompt">➜</span> <span class="cmd">ps aux | grep "time to code"</span></p>
-            <p class="output">Total: Welcome back Master!</p>
+            <p class="output">gian_marco_brandoli</p>
+            <p><span class="prompt">➜</span> <span class="cmd">cat /etc/role</span></p>
+            <p class="output">Security Researcher · Linux Developer</p>
+            <p><span class="prompt">➜</span> <span class="cmd">uname -r</span></p>
+            <p class="output">Linux cyberbox 7.2-arch · GNU/Linux x86_64</p>
+            <p><span class="prompt">➜</span> <span class="cmd">ls skills/</span></p>
+            <p class="output">python/ bash/ linux/ offensivesec/ networking/</p>
+            <p><span class="prompt">➜</span> <span class="cmd">cat status.txt</span></p>
+            <p class="output" style="color: var(--green);">[ ✓ ] Disponibile per collaborazioni</p>
             <p><span class="prompt">➜</span> <span class="cmd blinking-cursor">_</span></p>
           </div>
         </div>
@@ -76,76 +115,89 @@
     </section>
 
     <!-- ========== ABOUT + TOOLS ========== -->
-    <section id="about" class="about-section">
+    <div class="section-divider"></div>
+    <section id="about" class="about-section reveal">
       <div class="section-header">
-        <h2>//_ about &amp; tools</h2>
+        <h2>//_ profilo</h2>
         <span class="section-line"></span>
+        <span class="section-badge">Overview</span>
       </div>
-      <div class="about-grid">
+
+      <div class="about-grid reveal-stagger">
         <div class="about-card">
-          <div class="card-icon">⚙️</div>
-          <h3>TOOLCHAIN</h3>
-          <p contenteditable="true">
-            Python · Bash · Metasploit · Docker/Podman · Wireshark · Nmap · Burp Suite
+          <span class="card-icon">⚙️</span>
+          <h3>Toolchain</h3>
+          <ul>
+            <li>Python 3.x</li>
+            <li>Bash / Zsh</li>
+            <li>Metasploit</li>
+            <li>Docker / Podman</li>
+            <li>Wireshark</li>
+            <li>Nmap · Burp Suite</li>
+            <li>Proxmox · Rocky Linux</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <span class="card-icon">🎯</span>
+          <h3>Interessi</h3>
+          <p>
+            Red Teaming · Offensive Security · Reverse Engineering ·
+            CTF Competitions · Linux Clustering · Disaster Recovery ·
+            Kubernetes · Threat Modelling
           </p>
         </div>
+
         <div class="about-card">
-          <div class="card-icon">📡</div>
-          <h3>RECENT PROJECTS</h3>
-          <p contenteditable="true">
-            Gestionale di Fatturazione presso lo studio di consulenza del Lavoro di Rustignoli Cinzia
-            Novità saranno pubblicate presto con della documentazione nuova...
-          </p>
-        </div>
-        <div class="about-card">
-          <div class="card-icon">🧠</div>
-          <h3>INTERESTS</h3>
-          <p contenteditable="true">
-            Reverse engineering - Red Teaming - Offensive Security - CTF - Linux Clusters - Proxmox LVMs - Disaster Recovery - Python Scripting
+          <span class="card-icon">📡</span>
+          <h3>Formazione</h3>
+          <p>
+            Percorso in <strong>Sicurezza Informatica</strong>.
+            Studio continuo su piattaforme come TryHackMe, HackTheBox
+            e certificazioni open source. Orientato alle metodologie
+            enterprise RHEL e infrastrutture self-hosted.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ========== CV TERMINAL ========== -->
-    <section id="cv" class="cv-section">
+    <div class="section-divider"></div>
+    <section id="cv" class="cv-section reveal">
       <div class="section-header">
-        <h2>//_ cv — curriculum</h2>
+        <h2>//_ curriculum</h2>
         <span class="section-line"></span>
+        <span class="section-badge">CV</span>
       </div>
+
       <div class="cv-container">
         <div class="terminal-window">
           <div class="terminal-header">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
-            <span class="terminal-title">cv — 80×24</span>
+            <span class="terminal-title">cv — gian_marco_brandoli.sh</span>
           </div>
           <div class="terminal-body">
-            <p><span class="prompt">➜</span> <span class="cmd">whoami</span></p>
-            <p class="output">Gian Marco · Security Researcher</p>
-            <p><span class="prompt">➜</span> <span class="cmd">cat /etc/passwd</span></p>
-            <p class="output">nome:Gian Marco</p>
-            <p class="output">ruolo:Security Researcher & Linux Developer</p>
-            <p class="output">formazione:Sicurezza Informatica</p>
-            <p><span class="prompt">➜</span> <span class="cmd">uname -a</span></p>
-            <p class="output">Linux cyberbox 7.2.2-1-arch #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux</p>
-            <p><span class="prompt">➜</span> <span class="cmd">cat /etc/os-release</span></p>
-            <p class="output">NAME="Arch Linux"</p>
-            <p class="output">VERSION="2025.03.01"</p>
-            <p class="output">ID=arch</p>
-            <p><span class="prompt">➜</span> <span class="cmd">python --version</span></p>
-            <p class="output">Python 3.12.4</p>
-            <p><span class="prompt">➜</span> <span class="cmd">gcc --version</span></p>
-            <p class="output">gcc (GCC) 14.2.1 20250215</p>
+            <p><span class="prompt">➜</span> <span class="cmd">cat profile.json</span></p>
+            <p class="output">nome : Gian Marco Brandoli</p>
+            <p class="output">ruolo : Security Researcher · Linux Developer</p>
+            <p class="output">formazione : Sicurezza Informatica</p>
+            <p class="output">location : Italia 🇮🇹</p>
+            <br />
             <p><span class="prompt">➜</span> <span class="cmd">ls -la skills/</span></p>
-            <p class="output">drwxr-xr-x 2 root root 4096 Mar 10 12:00 python/</p>
-            <p class="output">drwxr-xr-x 2 root root 4096 Mar 10 12:00 bash/</p>
-            <p class="output">drwxr-xr-x 2 root root 4096 Mar 10 12:00 linux/</p>
-            <p class="output">drwxr-xr-x 2 root root 4096 Mar 10 12:00 cybersec/</p>
-            <p><span class="prompt">➜</span> <span class="cmd">wget https://codertracker.com/repo/cv/cv.doc</span></p>
-            <p class="output">Creating Downloading Link.....</p>
-            <p class="output"><a href="files/cv.docx">CLICK HERE TO DOWNLOAD THE CV!</a></p>
+            <p class="output">drwxr-xr-x python/ [ avanzato ]</p>
+            <p class="output">drwxr-xr-x bash-scripting/ [ avanzato ]</p>
+            <p class="output">drwxr-xr-x linux-sysadmin/ [ avanzato ]</p>
+            <p class="output">drwxr-xr-x cybersecurity/ [ in crescita ]</p>
+            <p class="output">drwxr-xr-x networking/ [ intermedio ]</p>
+            <br />
+            <p><span class="prompt">➜</span> <span class="cmd">cat esperienze.log</span></p>
+            <p class="output">[ 2024 ] Gestionale Fatturazione · Studio Rustignoli Cinzia</p>
+            <p class="output"> → Sviluppo full-stack, DB design, deploy Vercel</p>
+            <p class="output">[ 2025 ] Cluster Linux · Homelab Infrastructure</p>
+            <p class="output"> → Proxmox, Rocky Linux, Docker, Nginx Proxy Manager</p>
+            <br />
             <p><span class="prompt">➜</span> <span class="cmd blinking-cursor">_</span></p>
           </div>
         </div>
@@ -154,10 +206,17 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-      <p>© 2026 · cyber.cv — built with [1,0...] and <span class="term">[terminal]</span></p>
+      <span class="footer-brand">© 2026 · <strong>gm.sec</strong> — Gian Marco Brandoli</span>
+      <div class="footer-links">
+        <a href="pages/projects.html">Progetti</a>
+        <a href="pages/contact.html">Contatti</a>
+        <a href="https://github.com/codertracker" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </footer>
+
   </div>
 
   <script src="js/script.js"></script>
 </body>
+
 </html>

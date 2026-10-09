@@ -2,7 +2,8 @@
   "name": "mio-progetto",
   "version": "1.0.0",
   "dependencies": {
-    "@prisma/client": "^5.10.0"
+    "@prisma/client": "^5.10.0",
+    "resend": "^3.2.0"
   },
   "devDependencies": {
     "prisma": "^5.10.0"
