@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti · Gian Marco Brandoli</title>
+  <meta name="description"
+    content="Contatta Gian Marco Brandoli per collaborazioni, consulenze su cybersecurity e infrastrutture Linux." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/phone.css" />
+</head>
+
+<body>
+  <div class="app-wrapper">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+      <a href="../index.html" class="nav-brand">
+        <span class="brand-shield">🛡️</span>
+        <span class="brand-name">gm<span class="highlight">.sec</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="projects.html">Progetti</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contatti</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="status-text">ONLINE</span>
+      </div>
+    </nav>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="contact-section">
+      <div class="section-header">
+        <h2>//_ contatti</h2>
+        <span class="section-line"></span>
+        <span class="section-badge">Get in touch</span>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- FORM -->
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="es. Marco Rossi" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nome@esempio.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Oggetto</label>
+            <input type="text" id="subject" name="subject"
+              placeholder="es. Consulenza sicurezza, Collaborazione progetto…" />
+          </div>
+          <div class="form-group">
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" rows="5"
+              placeholder="Descrivi brevemente il tuo progetto o la tua richiesta…" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="btn-form-submit">
+            <span class="btn-text">Invia messaggio</span>
+            <span class="btn-icon">➜</span>
+          </button>
+        </form>
+
+        <!-- INFO LATERALE -->
+        <div class="contact-info">
+          <p class="contact-info-title">// Canali diretti</p>
+          <a href="mailto:gianma.rusti@ik.me" class="info-item" id="info-email">
+            <span class="info-icon">✉️</span>
+            <span class="info-text">
+              <span class="info-label">Email</span>
+              <span class="info-value">gianma.rusti@gmail.com</span>
+            </span>
+          </a>
+          <a href="https://t.me/Giamma90_96" class="info-item" target="_blank" rel="noopener" id="info-telegram">
+            <span class="info-icon">📨</span>
+            <span class="info-text">
+              <span class="info-label">Telegram</span>
+              <span class="info-value">Giamma90_96</span>
+            </span>
+          </a>
+          <a href="https://github.com/codertracker" class="info-item" target="_blank" rel="noopener" id="info-github">
+            <span class="info-icon">🐙</span>
+            <span class="info-text">
+              <span class="info-label">GitHub</span>
+              <span class="info-value">github.com/codertracker</span>
+            </span>
+          </a>
+          <div class="contact-note">
+            🕐 Rispondo generalmente entro <strong>24–48 ore</strong>.
+            Per richieste urgenti preferisci <span class="accent">Telegram</span>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <span class="footer-brand">© 2026 · <strong>gm.sec</strong> — Gian Marco Brandoli</span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="https://github.com/codertracker" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
