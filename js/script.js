@@ -1,6 +1,7 @@
 /**
  * script.js — Gian Marco Brandoli · gm.sec
- * Handles: scroll-reveal, project filters, detail expand, contact form
+ * Luxury Organic Cyberpunk / Warm Dark / Kernel Glass
+ * Features: GSAP ScrollTrigger, Canvas Particle Engine, Project Filtering, Detail Accordion, Contact Form
  */
 
 'use strict';
@@ -8,27 +9,186 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ============================================================
-  // SCROLL REVEAL
+  // 1. GSAP SCROLLTRIGGER & FALLBACK REVEAL
   // ============================================================
-  // Observe both .reveal and .reveal-stagger elements
-  const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
-  if (revealElements.length > 0) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Smooth reveal for all .reveal elements
+    gsap.utils.toArray('.reveal').forEach((element) => {
+      gsap.to(element, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // About cards: handled by CSS + IntersectionObserver below (not GSAP)
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const targetHref = this.getAttribute('href');
+        if (targetHref && targetHref !== '#') {
+          const target = document.querySelector(targetHref);
+          if (target) {
+            e.preventDefault();
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: target, offsetY: 70 },
+              ease: 'power3.inOut'
+            });
           }
-        });
-      },
-      { threshold: 0.08 }
-    );
-    revealElements.forEach((el) => observer.observe(el));
+        }
+      });
+    });
+
+  } else {
+    // Fallback: IntersectionObserver for reveal
+    const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (revealElements.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      revealElements.forEach((el) => observer.observe(el));
+    }
   }
 
   // ============================================================
-  // PROJECT FILTER (projects.html)
+  // 1b. ABOUT CARDS — CSS + IntersectionObserver (GSAP-independent)
+  // ============================================================
+  const aboutCards = document.querySelectorAll('.about-card');
+  if (aboutCards.length > 0) {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('card-visible');
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+    );
+    aboutCards.forEach((card, i) => {
+      card.style.setProperty('--card-delay', `${i * 0.13}s`);
+      cardObserver.observe(card);
+    });
+  }
+
+  // ============================================================
+  // 2. FLOATING PARTICLES CANVAS SYSTEM
+  // ============================================================
+  const canvas = document.getElementById('particleCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouseX = -1000, mouseY = -1000;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 15;
+        this.size = Math.random() * 2 + 0.6;
+        this.speedY = Math.random() * 0.45 + 0.2;
+        this.speedX = (Math.random() - 0.5) * 0.25;
+        this.opacity = Math.random() * 0.45 + 0.15;
+        this.warmth = Math.random();
+      }
+
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+
+        // Subtle mouse repulsion
+        const dx = mouseX - this.x;
+        const dy = mouseY - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140) {
+          this.x -= dx * 0.012;
+          this.y -= dy * 0.012;
+        }
+
+        if (this.y < -10) this.reset();
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        const r = Math.floor(232 * this.warmth + 180 * (1 - this.warmth));
+        const g = Math.floor(168 * this.warmth + 140 * (1 - this.warmth));
+        const b = Math.floor(124 * this.warmth + 120 * (1 - this.warmth));
+        ctx.fillStyle = `rgb(${r},${g},${b})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const particleCount = window.innerWidth < 768 ? 35 : 65;
+    for (let i = 0; i < particleCount; i++) {
+      const p = new Particle();
+      p.y = Math.random() * canvas.height;
+      particles.push(p);
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  }
+
+  // ============================================================
+  // 3. GLITCH TEXT HOVER EFFECT (Hero title)
+  // ============================================================
+  const glitch = document.querySelector('.glitch-text');
+  if (glitch) {
+    glitch.addEventListener('mouseenter', () => {
+      glitch.style.textShadow = '0 0 35px rgba(232, 168, 124, 0.75), 0 0 70px rgba(133, 205, 202, 0.35), 0 0 6px rgba(195, 141, 158, 0.5)';
+    });
+    glitch.addEventListener('mouseleave', () => {
+      glitch.style.textShadow = '';
+    });
+  }
+
+  // ============================================================
+  // 4. PROJECT FILTER (projects.html)
   // ============================================================
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectItems = document.querySelectorAll('.project-item');
@@ -36,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (filterBtns.length > 0) {
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
-        // Update active button
         filterBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
 
@@ -46,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const category = item.dataset.category;
           const show = filter === 'all' || category === filter;
 
-          item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          item.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
           if (show) {
             item.style.display = 'grid';
             requestAnimationFrame(() => {
@@ -55,12 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           } else {
             item.style.opacity = '0';
-            item.style.transform = 'translateY(12px)';
+            item.style.transform = 'translateY(15px)';
             setTimeout(() => {
               if (item.dataset.category !== filter && filter !== 'all') {
                 item.style.display = 'none';
               }
-            }, 300);
+            }, 350);
           }
         });
       });
@@ -68,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // PROJECT EXPAND / COLLAPSE (projects.html)
+  // 5. PROJECT DETAILS ACCORDION (projects.html)
   // ============================================================
   const expandBtns = document.querySelectorAll('.btn-expand');
 
@@ -93,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================================
-  // CONTACT FORM
+  // 6. CONTACT FORM SUBMISSION (contact.html)
   // ============================================================
   const contactForm = document.getElementById('contact-form');
 
@@ -110,7 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const messaggio = document.getElementById('message')?.value.trim();
       const subject = document.getElementById('subject')?.value.trim() || '';
 
-      // Basic validation
       if (!nome || !email || !messaggio) {
         showNotification('⚠️ Compila tutti i campi obbligatori.', 'warning');
         return;
@@ -121,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // UI: loading state
       btnSubmit.disabled = true;
       btnText.textContent = 'Invio in corso…';
       if (btnIcon) btnIcon.style.opacity = '0';
@@ -135,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           contactForm.reset();
-          showNotification('✓ Messaggio inviato con successo! Ti risponderò entro 48 ore.', 'success');
+          showNotification('✓ Messaggio inviato con successo! Ti risponderò entro 24–48 ore.', 'success');
         } else {
           const data = await response.json().catch(() => ({}));
           showNotification(`Errore: ${data.error || 'Riprova più tardi.'}`, 'error');
@@ -152,59 +309,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // GLITCH HOVER (hero title)
-  // ============================================================
-  const glitch = document.querySelector('.glitch-text');
-  if (glitch) {
-    glitch.addEventListener('mouseenter', () => {
-      glitch.style.textShadow = '0 0 40px rgba(56,220,195,0.8), 0 0 100px rgba(56,220,195,0.3), 0 0 6px rgba(255,107,138,0.4)';
-    });
-    glitch.addEventListener('mouseleave', () => {
-      glitch.style.textShadow = '';
-    });
-  }
-
-  // ============================================================
-  // FETCH INITIAL DATA (optional health check)
+  // 7. API HEALTH CHECK
   // ============================================================
   fetch('https://cyberstudent.vercel.app/api/get-data')
     .then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     })
-    .then((data) => console.log('[gm.sec] API OK:', data))
-    .catch((err) => console.warn('[gm.sec] API unreachable:', err.message));
+    .then((data) => console.log('[gm.sec] API Status OK:', data))
+    .catch((err) => console.warn('[gm.sec] API check skipped:', err.message));
 
-  console.log('%c🛡️ gm.sec — portfolio loaded.', 'color: #38dcc3; font-weight: bold;');
+  console.log('%c🛡️ gm.sec — system online. Theme: Organic Kernel Glass.', 'color: #E8A87C; font-weight: bold;');
 });
 
 // ============================================================
 // UTILITIES
 // ============================================================
-
-/**
- * Email validation helper
- * @param {string} email
- * @returns {boolean}
- */
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-/**
- * Show an in-page notification toast
- * @param {string} message
- * @param {'success'|'warning'|'error'} type
- */
 function showNotification(message, type = 'success') {
-  // Remove existing toast
   const existing = document.getElementById('gm-toast');
   if (existing) existing.remove();
 
   const colors = {
-    success: { bg: 'rgba(46,204,113,0.15)', border: 'rgba(46,204,113,0.4)', text: '#2ecc71' },
-    warning: { bg: 'rgba(240,199,74,0.15)', border: 'rgba(240,199,74,0.4)', text: '#f0c74a' },
-    error:   { bg: 'rgba(255,95,109,0.15)', border: 'rgba(255,95,109,0.4)', text: '#ff5f6d' },
+    success: { bg: 'rgba(26, 20, 18, 0.9)', border: 'rgba(133, 205, 202, 0.5)', text: '#85CDCA' },
+    warning: { bg: 'rgba(26, 20, 18, 0.9)', border: 'rgba(232, 168, 124, 0.5)', text: '#E8A87C' },
+    error:   { bg: 'rgba(26, 20, 18, 0.9)', border: 'rgba(195, 141, 158, 0.5)', text: '#C38D9E' },
   };
   const c = colors[type] || colors.success;
 
@@ -215,35 +347,33 @@ function showNotification(message, type = 'success') {
     position: 'fixed',
     bottom: '2rem',
     right: '2rem',
-    maxWidth: '360px',
+    maxWidth: '380px',
     background: c.bg,
     border: `1px solid ${c.border}`,
     color: c.text,
     padding: '1rem 1.4rem',
     borderRadius: '12px',
-    fontSize: '0.9rem',
-    fontFamily: 'Inter, sans-serif',
+    fontSize: '0.85rem',
+    fontFamily: "'JetBrains Mono', monospace",
     fontWeight: '500',
-    zIndex: '9999',
-    backdropFilter: 'blur(10px)',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-    transition: 'opacity 0.3s ease, transform 0.3s ease',
+    zIndex: '99999',
+    backdropFilter: 'blur(20px)',
+    boxShadow: '0 12px 36px rgba(0,0,0,0.6)',
+    transition: 'opacity 0.35s ease, transform 0.35s ease',
     opacity: '0',
-    transform: 'translateY(10px)',
+    transform: 'translateY(15px)',
   });
 
   document.body.appendChild(toast);
 
-  // Animate in
   requestAnimationFrame(() => {
     toast.style.opacity = '1';
     toast.style.transform = 'translateY(0)';
   });
 
-  // Auto-dismiss after 4.5 s
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
+    toast.style.transform = 'translateY(15px)';
     setTimeout(() => toast.remove(), 350);
   }, 4500);
 }
