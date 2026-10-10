@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writeups · Gian Marco Brandoli</title>
+  <meta name="description"
+    content="Writeup e appunti di Capture The Flag, HackTheBox, TryHackMe e sicurezza informatica di Gian Marco Brandoli." />
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Google Fonts: Geist & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/writeups.css" />
+  <link rel="stylesheet" href="../css/phone.css" />
+</head>
+
+<body class="antialiased">
+  <!-- Organic Aura Background -->
+  <div class="aura-container">
+    <div class="aura-orb"></div>
+    <div class="aura-orb"></div>
+    <div class="aura-orb"></div>
+  </div>
+
+  <!-- Floating Particles Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="app-wrapper content-layer">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+      <a href="../index.html" class="nav-brand">
+        <span class="brand-shield">🛡️</span>
+        <span class="brand-name">gm<span class="highlight">.sec</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="projects.html">Progetti</a></li>
+        <li><a href="writeups.html" class="active" aria-current="page">Writeups</a></li>
+        <li><a href="contact.html">Contatti</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="status-text">ONLINE</span>
+      </div>
+    </nav>
+
+    <!-- ========== HEADER ========== -->
+    <header class="projects-header reveal">
+      <h1 class="glitch-text" data-text="~/writeups">~/writeups</h1>
+      <p class="header-sub">
+        <span class="prompt">$</span>
+        <span class="cmd"> find . -name "*.md" -type f | sort -r</span>
+        <span class="output" id="writeup-count">· 2 writeups trovati</span>
+      </p>
+    </header>
+
+    <!-- ========== FILTER BAR ========== -->
+    <div class="projects-filter reveal" role="group" aria-label="Filtra per piattaforma" id="writeups-filter">
+      <!-- Populated by writeups.js -->
+    </div>
+
+    <!-- ========== WRITEUP GRID ========== -->
+    <section class="writeups-grid" id="writeups-list" aria-label="Lista writeups">
+      <!-- Populated by writeups.js -->
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <div class="projects-cta glass-card reveal">
+      <div>
+        <strong>🏁 Vuoi leggere di più?</strong>
+        <p>Nuovi writeup vengono pubblicati dopo ogni challenge. Stay tuned!</p>
+      </div>
+      <a href="../index.html" class="btn-primary" id="btn-cta-home">
+        Torna alla Home →
+      </a>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <span class="footer-brand">© 2026 · <strong>gm.sec</strong> — Gian Marco Brandoli</span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html">Contatti</a>
+        <a href="https://github.com/codertracker" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/writeups.js"></script>
+</body>
+
+</html>
